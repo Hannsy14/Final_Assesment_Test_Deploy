@@ -107,7 +107,7 @@
     
       // Load questions from the JSON file
       async function loadQuestions() {
-        const response = await fetch("questions.json");
+        const response = await fetch("https://run.mocky.io/v3/56f5e350-d384-48d5-ac4f-05e85d116f57");
         questions = await response.json();
         
         // Shuffle the questions to randomize their order
@@ -116,14 +116,14 @@
         if (questions.length > 0) {
           loadQuestion(currentQuestionIndex);
         } else {
-          hologram.setAttribute("text", `value: No questions available.`);
+          hologram.setAttribute("text", value: No questions available.);
         }
       }
     
       // Display the current question on the hologram
       function loadQuestion(index) {
         const question = questions[index];
-        hologram.setAttribute("text", `value: ${question.question}`);
+        hologram.setAttribute("text", value: ${question.question});
     
         // Clear existing buttons
         choicesContainer.innerHTML = '';
@@ -132,7 +132,7 @@
         question.answers.forEach((answer, i) => {
           const button = document.createElement("a-entity");
           button.setAttribute("class", "choice-button");
-          button.setAttribute("position", `0 ${1 - i * 0.6} 0.388`);
+          button.setAttribute("position", 0 ${1 - i * 0.6} 0.388);
           button.setAttribute("rotation", "-180 0 -180");  // Rotate button as requested
     
           const buttonPlane = document.createElement("a-plane");
@@ -141,7 +141,7 @@
           buttonPlane.setAttribute("width", "1.5");
     
           const buttonText = document.createElement("a-text");
-          buttonText.setAttribute("value", `${String.fromCharCode(65 + i)}: ${answer}`);
+          buttonText.setAttribute("value", ${String.fromCharCode(65 + i)}: ${answer});
           buttonText.setAttribute("align", "center");
           buttonText.setAttribute("position", "0 0 0.1");
     
@@ -176,13 +176,13 @@
       function displayFinalScore() {
         hologram.setAttribute(
           "text",
-          `value: Quiz finished!\nYour score: ${score}/${questions.length}`
+          value: Quiz finished!\nYour score: ${score}/${questions.length}
         );
         choicesContainer.innerHTML = ''; // Clear the buttons
     
         // Redirect to index.html and pass the score as a URL parameter
         setTimeout(() => {
-          window.location.href = `index.html?score=${score}`;
+          window.location.href = index.html?score=${score};
         }, 5000); // Wait 2 seconds before redirecting
       }
     
